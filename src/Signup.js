@@ -35,7 +35,12 @@ export default class Signup extends Component {
       fetch(usersURL, postObj)
       .then(res => res.json())
       .then(json => {
-        console.log(json)
+        if(!json.hasOwnProperty("error")){
+          window.location.assign("http://localhost:3001/login")
+        }
+        else {
+          this.setState({error: json.error});
+        }
       })
       .catch(error => console.log(error))
     }
