@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import Home from './Home.js';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Feature from './Feature.js'
 
 const FeaturesURL = "http://localhost:3000/features"
 
@@ -22,22 +22,28 @@ export default class FeaturesList extends Component {
   render(){
     if(this.state.features.length > 0) {
       return(
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Domain</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.features.map(feature => {return(
-              <tr key={feature.id}>
-                <td><Link to={`/features/${feature.id}`}>{feature.name}</Link></td>
-                <td>{feature.domain}</td>
-              </tr>
-            )})}
-          </tbody>
-        </table>
+
+          <div>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Domain</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {this.state.features.map(feature => {return(
+                      <tr key={feature.id}>
+                        <td><Link to={`/features/${feature.id}`}>{feature.name}</Link></td>
+                        <td>{feature.domain}</td>
+                      </tr>
+                    )})}
+                  </tbody>
+                </table>
+
+
+          </div>
+
       )
     }
     else {

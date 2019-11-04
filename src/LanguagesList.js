@@ -32,7 +32,7 @@ export default class LanguagesList extends Component {
           <tbody>
             {this.state.languages.map(language => {return(
               <tr key={language.id}>
-                <td>{language.name}</td>
+                <td><Link to={`/languages/${language.iso}`}>{language.name}</Link></td>
                 <td>{language.iso}</td>
               </tr>
             )})}
