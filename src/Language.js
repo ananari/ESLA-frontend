@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MapContainer from './MapContainer.js'
 
 const languageURL = iso => `http://localhost:3000/languages/${iso}`;
 
@@ -30,6 +31,7 @@ export default class Language extends Component {
         <div>
           <h1>{this.state.language.name}</h1>
           <h2>{this.state.language.iso}</h2>
+          {/* <MapContainer language={this.state.language}/> */}
         </div>
       )
     }
