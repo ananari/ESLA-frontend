@@ -32,8 +32,8 @@ export default class Login extends Component {
     .then(json => {
       if(!json.hasOwnProperty("error")){
         window.localStorage.setItem("token", json.jwt)
-        window.localStorage.setItem("username", json.jwt.username)
-        window.localStorage.setItem("id", `${json.jwt.id}`)
+        window.localStorage.setItem("username", json.user.username)
+        window.localStorage.setItem("id", `${json.user.id}`)
         window.location.assign("http://localhost:3001")
       }
       else {
