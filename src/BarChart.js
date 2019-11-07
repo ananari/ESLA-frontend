@@ -67,7 +67,6 @@ export default class BarChart extends Component {
   
 
   componentDidMount(){
-    console.log(this.props.data)
   }
 
   componentDidUpdate(){

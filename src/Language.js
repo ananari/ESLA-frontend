@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import MapContainer from './MapContainer.js'
+import {Link} from 'react-router-dom';
+import LanguagesDatapointList from './LanguagesDatapointList.js'
 
 const languageURL = iso => `http://localhost:3000/languages/${iso}`;
 
@@ -8,6 +10,7 @@ export default class Language extends Component {
     super();
     this.state = {
       language: {},
+      datapoints: [],
       error: "oops"
     }
   }
@@ -30,8 +33,10 @@ export default class Language extends Component {
       return(
         <div>
           <h1>{this.state.language.name}</h1>
-          <h2>{this.state.language.iso}</h2>
-          {/* <MapContainer language={this.state.language}/> */}
+          <h2>ISO 639-3 code {this.state.language.iso}</h2>
+          <MapContainer language={this.state.language}/>
+          <LanguagesDatapointList language={this.state.language} />
+          
         </div>
       )
     }

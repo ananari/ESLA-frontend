@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Feature from './Feature.js'
+import { Link } from "react-router-dom";
 
 const FeaturesURL = "http://localhost:3000/features"
 
@@ -19,6 +18,9 @@ export default class FeaturesList extends Component {
     })
     .catch(error => console.log(error))
   }
+
+  
+
   render(){
     if(this.state.features.length > 0) {
       return(
