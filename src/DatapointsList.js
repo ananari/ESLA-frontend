@@ -1,15 +1,8 @@
 import React, {Component} from 'react';
 import Datapoint from './Datapoint.js';
-import DatapointForm from './DatapointForm.js'
+
 
 export default class DatapointsList extends Component {
-  constructor(){
-    super();
-  }
-
-  componentDidMount(){
-    
-  }
 
   componentDidUpdate(){
     console.log("datapointslist has been updated!")

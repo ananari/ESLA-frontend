@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import DatapointsList from './DatapointsList.js';
 import BarChart from './BarChart.js'
 import FeatureMap from './FeatureMap.js'
@@ -105,7 +104,7 @@ export default class Feature extends Component {
       return(
         <div>
           <h1>{this.state.feature.name}</h1>
-          <FeatureMap feature={this.state.feature} datapoints={this.state.datapoints} />
+          {/* <FeatureMap feature={this.state.feature} datapoints={this.state.datapoints} /> */}
           <BarChart data={this.countData(this.state.datapoints)} />
           <DatapointsList feature={window.location.pathname.split('/features/')[1]} datapoints={this.state.datapoints} supplyData={this.supplyData} setEdit={this.setEdit} />
           {window.localStorage.getItem("token") ? <button onClick={() => this.showNewForm()}>{this.state.showNewForm ? "Hide form" : "Add new datapoint"}</button> : null}

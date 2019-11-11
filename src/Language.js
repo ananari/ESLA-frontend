@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MapContainer from './MapContainer.js'
-import {Link} from 'react-router-dom';
 import LanguagesDatapointList from './LanguagesDatapointList.js'
 
 const languageURL = iso => `http://localhost:3000/languages/${iso}`;

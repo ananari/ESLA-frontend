@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import Home from './Home.js';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const LanguagesURL = "http://localhost:3000/languages"
 
