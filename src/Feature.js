@@ -4,6 +4,7 @@ import BarChart from './BarChart.js'
 import FeatureMap from './FeatureMap.js'
 import DatapointForm from './DatapointForm.js';
 
+
 const featureURL = id => `http://localhost:3000/features/${id}`;
 const getDataURL = id => `http://localhost:3000/datapoints/for_feature/${id}`
 
@@ -96,16 +97,19 @@ export default class Feature extends Component {
   }
 
 
+
   render(){
     if(Object.keys(this.state.feature).length === 0) {
       return(<h1>{this.state.error}</h1>)
     }
     else {
       return(
-        <div>
+        <div className="container">
           <h1>{this.state.feature.name}</h1>
-          {/* <FeatureMap feature={this.state.feature} datapoints={this.state.datapoints} /> */}
-          <BarChart data={this.countData(this.state.datapoints)} />
+          <div className="row">
+            <FeatureMap feature={this.state.feature} datapoints={this.state.datapoints}/>
+            <BarChart data={this.countData(this.state.datapoints)} />
+          </div>
           <DatapointsList feature={window.location.pathname.split('/features/')[1]} datapoints={this.state.datapoints} supplyData={this.supplyData} setEdit={this.setEdit} />
           {window.localStorage.getItem("token") ? <button onClick={() => this.showNewForm()}>{this.state.showNewForm ? "Hide form" : "Add new datapoint"}</button> : null}
           {this.state.showNewForm ? <DatapointForm featureID={this.state.feature.id} handleData={this.addDataPoint} hideForm={this.hideNewForm} method="POST" /> : null}

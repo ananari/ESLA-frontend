@@ -1,5 +1,6 @@
 import React, { Component} from 'react';
 import mapboxgl from 'mapbox-gl';
+import Legend from './Legend.js';
 
 const mapStyle = {
   width: '600px',
@@ -8,11 +9,27 @@ const mapStyle = {
 
 export default class FeatureMap extends Component {
 
+  constructor(props){
+    super(props);
+    this.state = {
+      vals: {}
+    }
+  }
+  
+  componentDidMount() {
+    fetch(`http://localhost:3000/datapoints/for_feature/${this.props.feature.id}/geojson`)
+    .then(res => res.json())
+    .then(json => {
+      this.setState({vals: json.values})
+    })
+  }
+
   componentDidUpdate() {
     this.renderMap()
   }
 
   renderMap = () => {
+    console.log("map rendering")
     document.getElementById("mapContainer").innerHTML="";
     const map = new mapboxgl.Map({
       container: this.mapContainer,
@@ -23,7 +40,7 @@ export default class FeatureMap extends Component {
     fetch(`http://localhost:3000/datapoints/for_feature/${this.props.feature.id}/geojson`)
     .then(res => res.json())
     .then(json => {
-      console.log(json)
+      console.log(json);
       map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Disc_Plain_purple.svg/10px-Disc_Plain_purple.svg.png',
         function (error, image) {
           map.addImage('purple', image);
@@ -67,7 +84,10 @@ export default class FeatureMap extends Component {
   
   render(){
     return(
-      <div ref={el => this.mapContainer = el}  className="mapContainer" style={mapStyle} id="mapContainer">
+      <div>
+        <div ref={el => this.mapContainer = el}  className="mapContainer center" style={mapStyle} id="mapContainer">
+        </div>
+        <Legend vals={this.state.vals} />
       </div>
     )
   }

@@ -3,7 +3,8 @@ import mapboxgl from 'mapbox-gl';
 
 const mapStyle = {
   width: '600px',
-  height: '400px'
+  height: '400px',
+  margin: 'auto'
 };
 
 export default class MapContainer extends Component {
@@ -36,8 +37,12 @@ export default class MapContainer extends Component {
   }
   render() {
     return (
-        
-      <div ref={el => this.mapContainer = el}  className="mapContainer" style={mapStyle}/>
+      <div className="container">
+        <div className="row">
+          <div ref={el => this.mapContainer = el}  className="mapContainer" style={mapStyle}>
+          </div>
+        </div>
+      </div> 
 
 
     );
