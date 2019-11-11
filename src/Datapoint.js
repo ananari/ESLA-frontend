@@ -11,7 +11,7 @@ export default class Datapoint extends Component {
   render(){
     return (
       <tr>
-        <td><Link to={`/features/${this.props.datapoint.language.id}`}>{this.props.datapoint.language.name}</Link></td>
+        <td><Link to={`/languages/${this.props.datapoint.language.iso}`}>{this.props.datapoint.language.name}</Link></td>
         <td>{this.props.datapoint.value}</td>
         <td>{`${this.props.datapoint.user_id}` === window.localStorage.getItem("id") ? <button onClick={() => this.props.setEdit(this.props.datapoint)}>Edit me</button> : null }</td>
       </tr>
