@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ESLA-frontend/precache-manifest.92480d42a0a52d9e8bdc9faa85b29320.js"
+  "/ESLA-frontend/precache-manifest.059bb590b3349ab3a8ea3ea26cddbfa7.js"
 );
 
 self.addEventListener('message', (event) => {
