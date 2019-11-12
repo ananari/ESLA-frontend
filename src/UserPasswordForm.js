@@ -33,11 +33,14 @@ export default class UserPasswordForm extends Component {
       fetch(passURL(this.props.user.id), patchObj)
       .then(res => res.json())
       .then(json => {
-        if(!json.hasOwnProperty("error")){
+        if(!json.hasOwnProperty("error")) {
           window.localStorage.removeItem("token")
           window.localStorage.removeItem("username")
           window.localStorage.removeItem("id")
           window.location.assign("http://localhost:3001/login")
+        }
+        else {
+          this.setState({error: json.error})
         }
       })
       .catch(error => console.log(error))
