@@ -59,7 +59,7 @@ export default class Feature extends Component {
   }
 
   showNewForm = () => {
-    this.setState({showNewForm: true})
+    this.setState({showNewForm: !this.state.showNewForm})
   }
 
   hideNewForm = () => {
@@ -111,7 +111,7 @@ export default class Feature extends Component {
             <BarChart data={this.countData(this.state.datapoints)} />
           </div>
           <DatapointsList feature={window.location.pathname.split('/features/')[1]} datapoints={this.state.datapoints} supplyData={this.supplyData} setEdit={this.setEdit} />
-          {window.localStorage.getItem("token") ? <button onClick={() => this.showNewForm()}>{this.state.showNewForm ? "Hide form" : "Add new datapoint"}</button> : null}
+          {window.localStorage.getItem("token") ? <div className="addDataBtn"><button className="btn btn-info" onClick={() => this.showNewForm()}>{this.state.showNewForm ? "Hide form" : "Add new datapoint"}</button></div> : null}
           {this.state.showNewForm ? <DatapointForm featureID={this.state.feature.id} handleData={this.addDataPoint} hideForm={this.hideNewForm} method="POST" /> : null}
           {this.state.showEditForm ? <DatapointForm featureID={this.state.feature.id} handleData={this.editDataPoint} currentlyEdited={this.state.currentlyEdited} hideForm={this.hideEditForm} method="PATCH" /> : null}
         </div>

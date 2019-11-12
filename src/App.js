@@ -38,7 +38,7 @@ function App() {
             <Login />
           </Route>
           <Route>
-            { window.localStorage.getItem("token") ? <User id={window.localStorage.getItem("id")}/> : null }
+            { window.localStorage.getItem("token") ? <User /> : null }
           </Route>
         </Switch>
       </div>

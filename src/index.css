@@ -32,7 +32,7 @@ nav ul li.active {
   background-color: #d4f0fc;
 }
 
-nav ul li a {
+nav ul li a, nav ul li a:visited, nav ul li a:hover {
   display: block;
   color: white;
   text-align: center;
@@ -73,6 +73,45 @@ table.legend {
 div.mapContainer {
   float: left;
 }
+
+form, form label, form select {
+  margin: auto;
+
+}
+
+form {
+  background-color: #f2f2f2;
+}
+
+div.addDataBtn, div.editUserBtn, div.loginBtn, div.signupBtn {
+  text-align: center;
+  margin: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+div.form-group {
+  padding-top: 25px;
+}
+
+.userForm, .userInfo {
+  width: 80%;
+  margin: auto;
+}
+
+.narrowUserForm {
+  width: 60%;
+  margin: auto;
+}
+
+div.divider {
+  width: 10px;
+  height:auto;
+  display:inline-block;
+}
+
+
+
 
 
 /* div.canvas {

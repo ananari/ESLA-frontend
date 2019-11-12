@@ -46,14 +46,18 @@ export default class Login extends Component {
   render(){
     return (
       <div>
-        <form onSubmit={event => this.handleSubmit(event)}>
-          <input type="text" name="username" onChange={event => this.handleChange(event)} value={this.state.username} placeholder="Username" />
-          <label>Username</label>
-          <br/>
-          <input type="password" name="password" onChange={event => this.handleChange(event)} value={this.state.password} placeholder="Password"/>
-          <label>Password</label>
-          <br/>
-          <input type="submit" value="Sign up" />
+        <form className="narrowUserForm" onSubmit={event => this.handleSubmit(event)}>
+          <div className="form-group narrowUserForm row">
+            <label>Username</label>
+            <input type="text" name="username" className="col-6" onChange={event => this.handleChange(event)} value={this.state.username} placeholder="Username" />
+          </div>
+          <div className="form-group narrowUserForm row">
+            <label>Password</label>
+            <input type="password" name="password" className="col-6" onChange={event => this.handleChange(event)} value={this.state.password} placeholder="Password"/>
+          </div>
+          <div className="loginBtn">
+            <input type="submit" className="btn btn-info" value="Log in" />
+          </div>
         </form>
         <ul>
         {this.state.error.length > 0 ? <p>{this.state.error}</p> : null}

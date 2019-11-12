@@ -45,7 +45,7 @@ export default class Signup extends Component {
       .catch(error => console.log(error))
     }
     else {
-      this.setState({error: "password and password confirmation don't match"})
+      this.setState({error: "Password and password confirmation don't match."})
     }
   }
   
@@ -53,26 +53,34 @@ export default class Signup extends Component {
   render(){
     return(
       <div>
-        <form onSubmit={event => this.handleSubmit(event)}>
-          <input type="text" name="username" onChange={event => this.handleChange(event)} value={this.state.username} placeholder="Username" />
-          <label>Username</label>
-          <br/>
-          <input type="text" name="email" onChange={event => this.handleChange(event)} value={this.state.email} placeholder="E-mail" />
-          <label>E-mail</label>
-          <br/>
-          <input type="text" name="affiliation" onChange={event => this.handleChange(event)} value={this.state.affiliation} placeholder="Affiliation"/>
-          <label>Affiliation</label>
-          <br/>
-          <input type="number" name="age" onChange={event => this.handleChange(event)} value={this.state.age} placeholder="Age"/>
-          <label>Age</label>
-          <br/>
-          <input type="password" name="password" onChange={event => this.handleChange(event)} value={this.state.password} placeholder="Password"/>
-          <label>Password</label>
-          <br/>
-          <input type="password" name="password_confirmation" placeholder="Password confirmation" value={this.state.password_confirmation} onChange={event => this.handleChange(event)} />
-          <label>Password confirmation</label>
-          <br/>
-          <input type="submit" value="Sign up" />
+        <form className="narrowUserForm" onSubmit={event => this.handleSubmit(event)}>
+          <div className="form-group narrowUserForm row">
+            <label>Username</label>
+            <input type="text" name="username" className="col-6" onChange={event => this.handleChange(event)} value={this.state.username} placeholder="Username" />
+          </div>
+          <div className="form-group narrowUserForm row">
+            <label>E-mail</label>
+            <input type="text" name="email" className="col-6" onChange={event => this.handleChange(event)} value={this.state.email} placeholder="E-mail" />
+          </div>
+          <div className="form-group narrowUserForm row">
+            <label>Affiliation</label>
+            <input type="text" name="affiliation" className="col-6" onChange={event => this.handleChange(event)} value={this.state.affiliation} placeholder="Affiliation"/>
+          </div>
+          <div className="form-group narrowUserForm row">
+            <label>Age</label>
+            <input type="number" name="age"  className="col-6" onChange={event => this.handleChange(event)} value={this.state.age} placeholder="Age"/>
+          </div>
+          <div className="form-group narrowUserForm row">
+            <label>Password</label>
+            <input type="password" name="password" className="col-6" onChange={event => this.handleChange(event)} value={this.state.password} placeholder="Password"/>
+          </div>
+          <div className="form-group narrowUserForm row">
+            <label>Password confirmation</label>
+            <input type="password" name="password_confirmation" className="col-6" placeholder="Password confirmation" value={this.state.password_confirmation} onChange={event => this.handleChange(event)} />
+          </div>
+          <div className="signupBtn">
+            <input type="submit" className="btn btn-info" value="Sign up" />
+          </div>
         </form>
         <ul>
         {this.state.error.length > 0 ? <p>{this.state.error}</p> : null}

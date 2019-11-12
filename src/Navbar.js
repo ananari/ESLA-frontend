@@ -120,13 +120,14 @@ export default class Navbar extends Component {
           <li onClick={this.setHomeActive} className={this.state.homeClass}><Link to="/">Home</Link></li>
           <li onClick={this.setFeaturesActive} className={this.state.featureClass}><Link to="/features">Features</Link></li>
           <li onClick={this.setLanguagesActive} className={this.state.languageClass}><Link to="/languages">Languages</Link></li>
-          <li onClick={this.setSignupActive} className={this.state.signupClass} id="signup"><Link to ="/signup">Sign up</Link></li>
-          <li onClick={this.setLoginActive} className={this.state.loginClass} id="login"><Link to ="/login">Log in</Link></li>
+          {window.localStorage.getItem("token") ? null : <li onClick={this.setSignupActive} className={this.state.signupClass} id="signup"><Link to ="/signup">Sign up</Link></li>}
+          {window.localStorage.getItem("token") ? null : <li onClick={this.setLoginActive} className={this.state.loginClass} id="login"><Link to ="/login">Log in</Link></li>}
           {window.localStorage.getItem("token") ? <li onClick={this.setUserActive} className={this.state.userClass}><Link to={`/users/${window.localStorage.getItem("id")}`}>{this.state.username}</Link></li> : null}
-          <li onClick={this.setHomeActive} id="logout"><Link onClick={this.handleLogout} to="/">Log out</Link></li>
+          {window.localStorage.getItem("token") ? <li onClick={this.setHomeActive} id="logout"><Link onClick={this.handleLogout} to="/">Log out</Link></li> : null}
         </ul>
       </nav>
     )
   }
 
 }
+

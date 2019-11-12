@@ -78,19 +78,23 @@ export default class DatapointForm extends Component {
         <div>
           <h2>{this.props.currentlyEdited ? `Editing value ${this.props.currentlyEdited.value} for ${this.props.currentlyEdited.language.name}` : "Adding new datapoint"}</h2>
           <form onSubmit={(event) => this.handleSubmit(event)} >
-            <label>Language</label>
-            <select name="language_id" onChange={(event) => this.handleChange(event)} value={this.state.language_id}>
-              <option value=""></option>
-              {this.state.languages.map(lang => {return(<option value={lang.id}>{lang.name}</option>)})}
-            </select>
-            <br/>
-            <label>Value</label>
-            <select name="value" onChange={(event) => this.handleChange(event)} value={this.state.value}>
-              <option value=""></option>
-              {this.state.values.map(val => {return(<option value={val}>{val}</option>)})}
-            </select>
-            <br/>
-            <input type="submit" value="Add datapoint" />
+            <div className="form-group row">
+              <label htmlFor="language_id">Language</label>
+              <select name="language_id" className="col-6" id="language_id" onChange={(event) => this.handleChange(event)} value={this.state.language_id}>
+                <option value=""></option>
+                {this.state.languages.map(lang => {return(<option value={lang.id}>{lang.name}</option>)})}
+              </select>
+            </div>
+            <div className="form-group row" >
+              <label htmlFor="value">Value</label>
+              <select name="value" className="col-6" id="value" onChange={(event) => this.handleChange(event)} value={this.state.value}>
+                <option value=""></option>
+                {this.state.values.map(val => {return(<option value={val}>{val}</option>)})}
+              </select>
+            </div>
+            <div className="addDataBtn">
+              <input type="submit" class="btn btn-info" value="Submit datapoint" />
+            </div>
           </form>
         </div>
       )
