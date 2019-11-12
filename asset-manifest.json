@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/ESLA-frontend/static/css/main.2699557a.chunk.css",
+    "main.js": "/ESLA-frontend/static/js/main.451ca739.chunk.js",
+    "main.js.map": "/ESLA-frontend/static/js/main.451ca739.chunk.js.map",
+    "runtime-main.js": "/ESLA-frontend/static/js/runtime-main.e277546b.js",
+    "runtime-main.js.map": "/ESLA-frontend/static/js/runtime-main.e277546b.js.map",
+    "static/js/2.7885cb99.chunk.js": "/ESLA-frontend/static/js/2.7885cb99.chunk.js",
+    "static/js/2.7885cb99.chunk.js.map": "/ESLA-frontend/static/js/2.7885cb99.chunk.js.map",
+    "index.html": "/ESLA-frontend/index.html",
+    "precache-manifest.92480d42a0a52d9e8bdc9faa85b29320.js": "/ESLA-frontend/precache-manifest.92480d42a0a52d9e8bdc9faa85b29320.js",
+    "service-worker.js": "/ESLA-frontend/service-worker.js",
+    "static/css/main.2699557a.chunk.css.map": "/ESLA-frontend/static/css/main.2699557a.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e277546b.js",
+    "static/js/2.7885cb99.chunk.js",
+    "static/css/main.2699557a.chunk.css",
+    "static/js/main.451ca739.chunk.js"
+  ]
+}
