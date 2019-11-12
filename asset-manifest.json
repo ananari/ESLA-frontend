@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.2699557a.chunk.css",
-    "main.js": "/static/js/main.e4748750.chunk.js",
-    "main.js.map": "/static/js/main.e4748750.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.0123ce74.js",
-    "runtime-main.js.map": "/static/js/runtime-main.0123ce74.js.map",
-    "static/js/2.7885cb99.chunk.js": "/static/js/2.7885cb99.chunk.js",
-    "static/js/2.7885cb99.chunk.js.map": "/static/js/2.7885cb99.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.fb527dca498d15fc9501b9af91273e2e.js": "/precache-manifest.fb527dca498d15fc9501b9af91273e2e.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.2699557a.chunk.css.map": "/static/css/main.2699557a.chunk.css.map"
+    "main.css": "/ESLA-frontend/static/css/main.2699557a.chunk.css",
+    "main.js": "/ESLA-frontend/static/js/main.fae9e872.chunk.js",
+    "main.js.map": "/ESLA-frontend/static/js/main.fae9e872.chunk.js.map",
+    "runtime-main.js": "/ESLA-frontend/static/js/runtime-main.e277546b.js",
+    "runtime-main.js.map": "/ESLA-frontend/static/js/runtime-main.e277546b.js.map",
+    "static/js/2.7885cb99.chunk.js": "/ESLA-frontend/static/js/2.7885cb99.chunk.js",
+    "static/js/2.7885cb99.chunk.js.map": "/ESLA-frontend/static/js/2.7885cb99.chunk.js.map",
+    "index.html": "/ESLA-frontend/index.html",
+    "precache-manifest.917154b40803a7e44705e98ef78a9c68.js": "/ESLA-frontend/precache-manifest.917154b40803a7e44705e98ef78a9c68.js",
+    "service-worker.js": "/ESLA-frontend/service-worker.js",
+    "static/css/main.2699557a.chunk.css.map": "/ESLA-frontend/static/css/main.2699557a.chunk.css.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.0123ce74.js",
+    "static/js/runtime-main.e277546b.js",
     "static/js/2.7885cb99.chunk.js",
     "static/css/main.2699557a.chunk.css",
-    "static/js/main.e4748750.chunk.js"
+    "static/js/main.fae9e872.chunk.js"
   ]
 }
