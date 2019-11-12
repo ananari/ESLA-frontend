@@ -8,11 +8,11 @@ import Signup from './Signup.js'
 import Login from './Login.js'
 import User from './User.js'
 import Navbar from './Navbar.js'
-import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   return (
-    <Router basename="/ESLA-frontend/">
+    <Router basename="/ESLA-frontend" >
       <div>
         <Navbar />
         <Switch>
