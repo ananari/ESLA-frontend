@@ -2,7 +2,6 @@
   "name": "esla-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ananari.github.io/ESLA-frontend/",
   "dependencies": {
     "d3": "^5.12.0",
     "gh-pages": "^2.1.1",

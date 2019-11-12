@@ -12,7 +12,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   return (
-    <Router basename="/ESLA-frontend" >
+    <Router >
       <div>
         <Navbar />
         <Switch>
