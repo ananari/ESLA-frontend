@@ -1,13 +1,15 @@
 import React from 'react';
+import Navbar from './Navbar.js'
 import Home from './Home.js';
-import FeaturesList from './FeaturesList.js'
+import Login from './Login.js'
+import Signup from './Signup.js'
 import Feature from './Feature.js'
+import FeaturesList from './FeaturesList.js'
 import LanguagesList from './LanguagesList.js'
 import Language from './Language.js'
-import Signup from './Signup.js'
-import Login from './Login.js'
+import AdminAddDatapoint from './AdminAddDatapoint.js'
 import User from './User.js'
-import Navbar from './Navbar.js'
+import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
@@ -21,6 +23,9 @@ function App() {
           </Route>
           <Route exact path="/features">
             <FeaturesList />
+          </Route>
+          <Route exact path="/admin">
+            <AdminAddDatapoint />
           </Route>
           <Route path="/features">
             <Feature />

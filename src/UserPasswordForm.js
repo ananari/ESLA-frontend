@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-const passURL = id => `http://localhost:3000/users/${id}/update_password`
+const passURL = id => `https://stark-lake-66426.herokuapp.com/users/${id}/update_password`
 
 export default class UserPasswordForm extends Component {
   constructor(props){
@@ -37,7 +37,7 @@ export default class UserPasswordForm extends Component {
           window.localStorage.removeItem("token")
           window.localStorage.removeItem("username")
           window.localStorage.removeItem("id")
-          window.location.assign("http://localhost:3001/login")
+          window.location.assign("https://rocky-brushlands-87054.herokuapp.com/login")
         }
         else {
           this.setState({error: json.error})

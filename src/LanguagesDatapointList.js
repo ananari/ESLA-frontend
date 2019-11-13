@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import LanguageDatapoint from './LanguageDatapoint.js'
 
-const getDataURL = id => `http://localhost:3000/datapoints/for_language/${id}`
+const getDataURL = id => `https://stark-lake-66426.herokuapp.com/datapoints/for_language/${id}`
 
 export default class LanguagesDatapointList extends Component {
   constructor(){

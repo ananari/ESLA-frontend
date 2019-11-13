@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-const loginURL = "http://localhost:3000/login"
+const loginURL = "https://stark-lake-66426.herokuapp.com/login"
 const postObj = {
   method: "POST",
   headers: {
@@ -34,7 +34,7 @@ export default class Login extends Component {
         window.localStorage.setItem("token", json.jwt)
         window.localStorage.setItem("username", json.user.username)
         window.localStorage.setItem("id", `${json.user.id}`)
-        window.location.assign("http://localhost:3001")
+        window.location.assign("https://rocky-brushlands-87054.herokuapp.com/")
       }
       else {
         this.setState({error: json.error});

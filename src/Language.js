@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MapContainer from './MapContainer.js'
 import LanguagesDatapointList from './LanguagesDatapointList.js'
 
-const languageURL = iso => `http://localhost:3000/languages/${iso}`;
+const languageURL = iso => `https://stark-lake-66426.herokuapp.com/languages/${iso}`;
 
 export default class Language extends Component {
   constructor(){

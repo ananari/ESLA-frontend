@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import UserForm from './UserForm.js'
 import UserPasswordForm from './UserPasswordForm.js'
 
-const userURL = id => `http://localhost:3000/users/${id}`
+const userURL = id => `https://stark-lake-66426.herokuapp.com/users/${id}`
 
 export default class User extends Component {
   constructor(props){

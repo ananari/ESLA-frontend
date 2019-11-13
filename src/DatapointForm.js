@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 
-const languagesURL = "http://localhost:3000/languages";
-const valuesURL = id => `http://localhost:3000/features/${id}/values`;
-const datapointsURL = "http://localhost:3000/datapoints";
-const editDatapointsURL = id => `http://localhost:3000/datapoints/${id}`;
+const languagesURL = "https://stark-lake-66426.herokuapp.com/languages";
+const valuesURL = id => `https://stark-lake-66426.herokuapp.com/features/${id}/values`;
+const datapointsURL = "https://stark-lake-66426.herokuapp.com/datapoints";
+const editDatapointsURL = id => `https://stark-lake-66426.herokuapp.com/datapoints/${id}`;
 
 export default class DatapointForm extends Component {
   constructor(props){

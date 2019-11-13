@@ -5,8 +5,8 @@ import FeatureMap from './FeatureMap.js'
 import DatapointForm from './DatapointForm.js';
 
 
-const featureURL = id => `http://localhost:3000/features/${id}`;
-const getDataURL = id => `http://localhost:3000/datapoints/for_feature/${id}`
+const featureURL = id => `https://stark-lake-66426.herokuapp.com/features/${id}`;
+const getDataURL = id => `https://stark-lake-66426.herokuapp.com/datapoints/for_feature/${id}`
 
 
 export default class Feature extends Component {
@@ -63,7 +63,7 @@ export default class Feature extends Component {
   }
 
   hideNewForm = () => {
-    this.setState({showForm: false})
+    this.setState({showNewForm: false})
   }
 
   showEditForm = () => {
@@ -91,7 +91,6 @@ export default class Feature extends Component {
     .catch(error => console.log(error))
     
   }
-
   componentDidUpdate(){
     console.log(this.state)
   }

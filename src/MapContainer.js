@@ -1,45 +1,33 @@
 import React, {Component} from 'react';
-import mapboxgl from 'mapbox-gl';
+import Marker from './Marker.js'
+import GoogleMapReact from 'google-map-react';
+
 
 const mapStyle = {
   width: '600px',
   height: '400px',
   margin: 'auto'
 };
+const mapCenter = [56.1371241, 17.8624636]
+const mapZoom = 2
 
 export default class MapContainer extends Component {
 
-
-  componentDidMount() {
-    const map = new mapboxgl.Map({
-      container: this.mapContainer,
-      style: 'mapbox://styles/mapbox/streets-v11',
-      center: [17.8624636, 56.1371241],
-      zoom: 2
-      });
-
-    fetch(`http://localhost:3000/languages/${this.props.language.iso}/geojson`)
-    .then(res => res.json())
-    .then(json => {
-      console.log(this.props.language.iso)
-      console.log(json)
-      map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Disc_Plain_black.svg/10px-Disc_Plain_black.svg.png',
-       function (error, image) {
-         map.addImage('black', image);
-      })
-      map.addLayer(json);
-
-    })
-    .catch(error => console.log(error))
-      
-
-
-  }
   render() {
     return (
       <div className="container">
         <div className="row">
-          <div ref={el => this.mapContainer = el}  className="mapContainer" style={mapStyle}>
+          <div className="mapContainer" style={mapStyle}>
+            <GoogleMapReact
+            bootstrapURLKeys={{key: process.env.REACT_APP_API_KEY}}
+            center={mapCenter}
+            zoom={mapZoom}>
+              <Marker
+              lat={this.props.language.latitude + 2}
+              lng={this.props.language.longitude}
+              text={this.props.language.name}
+              />
+            </GoogleMapReact>
           </div>
         </div>
       </div> 

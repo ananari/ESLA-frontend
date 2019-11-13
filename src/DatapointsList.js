@@ -4,15 +4,6 @@ import Datapoint from './Datapoint.js';
 
 export default class DatapointsList extends Component {
 
-  componentDidUpdate(){
-    console.log("datapointslist has been updated!")
-    console.log(this.props.datapoints)
-  }
-
-  
-
-  
-
   render(){
     if(this.props.datapoints.length > 0) {
       return(

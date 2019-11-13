@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Link } from "react-router-dom";
 
-const FeaturesURL = "http://localhost:3000/features"
+const FeaturesURL = "https://stark-lake-66426.herokuapp.com/features"
 
 export default class FeaturesList extends Component {
   constructor(){

@@ -1,95 +1,60 @@
 import React, { Component} from 'react';
-import mapboxgl from 'mapbox-gl';
+import GoogleMapReact from 'google-map-react';
 import Legend from './Legend.js';
+import Marker from './Marker.js'
 
 const mapStyle = {
   width: '600px',
-  height: '400px'
+  height: '400px',
+  margin: 'auto'
 };
+const mapCenter = [56.1371241, 17.8624636]
+const mapZoom = 2
 
 export default class FeatureMap extends Component {
 
   constructor(props){
     super(props);
     this.state = {
+      features: [],
       vals: {}
     }
   }
   
   componentDidMount() {
-    fetch(`http://localhost:3000/datapoints/for_feature/${this.props.feature.id}/geojson`)
+    fetch(`https://stark-lake-66426.herokuapp.com/datapoints/for_feature/${this.props.feature.id}/geojson`)
     .then(res => res.json())
     .then(json => {
-      this.setState({vals: json.values})
+      this.setState({features: json.features, vals: json.values})
     })
   }
 
-  componentDidUpdate() {
-    this.renderMap()
+  componentDidUpdate(){
+    console.log("featmap updated!")
+    console.log(this.state)
+    console.log(this.state.features)
+    console.log(this.state.vals)
   }
 
-  renderMap = () => {
-    console.log("map rendering")
-    document.getElementById("mapContainer").innerHTML="";
-    const map = new mapboxgl.Map({
-      container: this.mapContainer,
-      style: 'mapbox://styles/mapbox/streets-v11',
-      center: [15, 54],
-      zoom: 2.4
-    });
-    fetch(`http://localhost:3000/datapoints/for_feature/${this.props.feature.id}/geojson`)
-    .then(res => res.json())
-    .then(json => {
-      console.log(json);
-      map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Disc_Plain_purple.svg/10px-Disc_Plain_purple.svg.png',
-        function (error, image) {
-          map.addImage('purple', image);
-      })
-      map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Disc_Plain_blue.svg/10px-Disc_Plain_blue.svg.png',
-        function (error, image) {
-          map.addImage('blue', image);
-      })
-      
-      map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Disc_Plain_cyan.svg/10px-Disc_Plain_cyan.svg.png',
-        function (error, image) {
-          map.addImage('cyan', image);
-      })
-      map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Disc_Plain_green_dark.svg/10px-Disc_Plain_green_dark.svg.png', 
-        function (error, image) {
-          map.addImage('green', image);
-      })
-      map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Disc_Plain_yellow.svg/10px-Disc_Plain_yellow.svg.png',
-        function (error, image) {
-          map.addImage('yellow', image);
-      })
-      map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Disc_Plain_orange.svg/10px-Disc_Plain_orange.svg.png', 
-        function (error, image) {
-          map.addImage('orange', image);
-      })
-      map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Disc_Plain_red.svg/10px-Disc_Plain_red.svg.png',
-        function (error, image) {
-          map.addImage('red', image);
-      })
-      map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Disc_Plain_black.svg/10px-Disc_Plain_black.svg.png',
-        function (error, image) {
-          map.addImage('black', image);
-      })
-      map.addLayer(json);
-
-    })
-    .catch(error => console.log(error))
-    
-  }
-
-  
   render(){
-    return(
-      <div>
-        <div ref={el => this.mapContainer = el}  className="mapContainer center" style={mapStyle} id="mapContainer">
+    if(this.state.features){
+      return(
+        <div>
+          <div className="mapContainer center" style={mapStyle} id="mapContainer">
+            <GoogleMapReact
+                bootstrapURLKeys={{key: process.env.REACT_APP_API_KEY}}
+                center={mapCenter}
+                zoom={mapZoom}>
+                  {this.state.features.map(feature => {return(<Marker lat={feature.latitude} lng={feature.longitude} colour={feature.icon}/>)})}
+            </GoogleMapReact>
+          </div>
+          <Legend vals={this.state.vals} />
         </div>
-        <Legend vals={this.state.vals} />
-      </div>
-    )
+      )
+    }
+    else {
+      return(<p>Oops, no map here.</p>)
+    }
   }
 
 }

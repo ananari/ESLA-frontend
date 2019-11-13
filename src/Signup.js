@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-const usersURL = "http://localhost:3000/users"
+const usersURL = "https://stark-lake-66426.herokuapp.com/users"
 const postObj = {
   method: "POST",
   headers: {
@@ -36,7 +36,7 @@ export default class Signup extends Component {
       .then(res => res.json())
       .then(json => {
         if(!json.hasOwnProperty("error")){
-          window.location.assign("http://localhost:3001/login")
+          window.location.assign("https://rocky-brushlands-87054.herokuapp.com/login")
         }
         else {
           this.setState({error: json.error});

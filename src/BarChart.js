@@ -64,16 +64,10 @@ export default class BarChart extends Component {
     
   }
 
-  
-
-  componentDidMount(){
-  }
-
   componentDidUpdate(){
     this.drawBarChart(this.props.data)
   }
 
-  
   render(){
     return(<div ref="canvas" className="canvas"></div>)
   }
