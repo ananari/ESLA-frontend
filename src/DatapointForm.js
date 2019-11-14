@@ -5,6 +5,7 @@ const valuesURL = id => `https://stark-lake-66426.herokuapp.com/features/${id}/v
 const datapointsURL = "https://stark-lake-66426.herokuapp.com/datapoints";
 const editDatapointsURL = id => `https://stark-lake-66426.herokuapp.com/datapoints/${id}`;
 
+
 export default class DatapointForm extends Component {
   constructor(props){
     super(props);
@@ -13,7 +14,8 @@ export default class DatapointForm extends Component {
       language_id: this.props.currentlyEdited ? this.props.currentlyEdited.language_id : "",
       value: this.props.currentlyEdited ? this.props.currentlyEdited.value : "",
       values: [],
-      languages: []
+      languages: [],
+      error: ""
     }
   }
 
@@ -59,6 +61,9 @@ export default class DatapointForm extends Component {
         this.props.handleData(json);
         this.props.hideForm();
       }
+      else {
+        this.setState({error: json.error})
+      }
     })
     .catch(error => console.log(error))
   }
@@ -95,6 +100,7 @@ export default class DatapointForm extends Component {
             <div className="addDataBtn">
               <input type="submit" class="btn btn-info" value="Submit datapoint" />
             </div>
+            {this.state.error.length > 0 ? <p>{this.state.error}</p> : null}
           </form>
         </div>
       )

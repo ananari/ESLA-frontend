@@ -7,16 +7,26 @@ export default class FeaturesList extends Component {
   constructor(){
     super();
     this.state = {
-      features: []
+      features: [],
+      visibleFeatures: [],
+      name: "",
+      domain: ""
     }
   }
   componentDidMount(){
     fetch(FeaturesURL)
     .then(res => res.json())
     .then(json => {
-      this.setState({features: json})
+      this.setState({features: json, visibleFeatures: json})
     })
     .catch(error => console.log(error))
+  }
+
+  handleChange = async event => {
+    event.persist();
+    await this.setState({[event.target.name]: event.target.value})
+    let visibleFeatures = this.state.features.filter(feat => feat.name.toLowerCase().includes(this.state.name.toLowerCase()) && feat.domain.toLowerCase().includes(this.state.domain.toLowerCase()))
+    this.setState({visibleFeatures: visibleFeatures})
   }
 
   
@@ -32,9 +42,21 @@ export default class FeaturesList extends Component {
                       <th>Name</th>
                       <th>Domain</th>
                     </tr>
+                    <tr>
+                      <th>
+                        <form>
+                          <input type="text" name="name" onChange={event => this.handleChange(event)} value={this.state.name} />
+                        </form>
+                      </th>
+                      <th>
+                        <form>
+                          <input type="text" name="domain" onChange={event => this.handleChange(event)} value={this.state.domain} />
+                        </form>
+                      </th>
+                    </tr>
                   </thead>
                   <tbody>
-                    {this.state.features.map(feature => {return(
+                    {this.state.visibleFeatures.map(feature => {return(
                       <tr key={feature.id}>
                         <td><Link to={`/features/${feature.id}`}>{feature.name}</Link></td>
                         <td>{feature.domain}</td>
