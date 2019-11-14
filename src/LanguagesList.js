@@ -7,14 +7,24 @@ export default class LanguagesList extends Component {
   constructor(){
     super();
     this.state = {
-      languages: []
+      languages: [],
+      visibleLanguages: [],
+      name: "",
+      iso: ""
     }
+  }
+
+  handleChange = async event => {
+    event.persist();
+    await this.setState({[event.target.name]: event.target.value})
+    let visibleLanguages = this.state.languages.filter(lang => lang.name.toLowerCase().includes(this.state.name.toLowerCase()) && lang.iso.toLowerCase().includes(this.state.iso.toLowerCase()))
+    this.setState({visibleLanguages: visibleLanguages})
   }
   componentDidMount(){
     fetch(LanguagesURL)
     .then(res => res.json())
     .then(json => {
-      this.setState({languages: json})
+      this.setState({languages: json, visibleLanguages: json})
     })
     .catch(error => console.log(error))
   }
@@ -27,9 +37,21 @@ export default class LanguagesList extends Component {
               <th>Name</th>
               <th>ISO 639-3 code</th>
             </tr>
+            <tr>
+              <th>
+                <form>
+                  <input type="text" onChange={event => this.handleChange(event)} name="name" value={this.state.name} />
+                </form>
+              </th>
+              <th>
+                <form>
+                  <input type="text" onChange={event => this.handleChange(event)} name="iso" value={this.state.iso} />
+                </form>
+              </th>
+            </tr>
           </thead>
           <tbody>
-            {this.state.languages.map(language => {return(
+            {this.state.visibleLanguages.map(language => {return(
               <tr key={language.id}>
                 <td><Link to={`/languages/${language.iso}`}>{language.name}</Link></td>
                 <td>{language.iso}</td>

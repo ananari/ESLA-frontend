@@ -106,7 +106,7 @@ export default class Feature extends Component {
         <div className="container">
           <h1>{this.state.feature.name}</h1>
           <div className="row">
-            <FeatureMap feature={this.state.feature} datapoints={this.state.datapoints}/>
+            <FeatureMap feature={this.state.feature} key={this.state.datapoints.length} datapoints={this.state.datapoints}/>
             <BarChart data={this.countData(this.state.datapoints)} />
           </div>
           <DatapointsList feature={window.location.pathname.split('/features/')[1]} datapoints={this.state.datapoints} supplyData={this.supplyData} setEdit={this.setEdit} />
