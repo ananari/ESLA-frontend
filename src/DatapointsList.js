@@ -21,6 +21,16 @@ export default class DatapointsList extends Component {
     this.setState({visibleDatapoints: visibleDatapoints})
   }
 
+  static getDerivedStateFromProps(nextProps, prevState){
+    if(nextProps.datapoints !== prevState.datapoints){
+      return {
+        datapoints: nextProps.datapoints,
+        visibleDatapoints: nextProps.datapoints
+      }
+    }
+    return null;
+  }
+
   componentDidMount(){
     console.log("im mount")
     console.log({props: this.props})

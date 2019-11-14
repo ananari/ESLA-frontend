@@ -14,13 +14,13 @@ export default class Legend extends Component {
                 Value
               </th>
             </tr>
-            {Object.keys(this.props.vals).map(colour => {return(
+            {Object.keys(this.props.vals).map(val => {return(
               <tr>
                 <td>
-                  {colour}
+                  {this.props.vals[val]}
                 </td>
                 <td>
-                  {this.props.vals[colour]}
+                  {val}
                 </td>
               </tr>
             )})}

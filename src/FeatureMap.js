@@ -16,28 +16,28 @@ export default class FeatureMap extends Component {
   constructor(props){
     super(props);
     this.state = {
-      features: [],
       vals: {}
     }
   }
+
+
   
   componentDidMount() {
     fetch(`https://stark-lake-66426.herokuapp.com/datapoints/for_feature/${this.props.feature.id}/geojson`)
     .then(res => res.json())
     .then(json => {
-      this.setState({features: json.features, vals: json.values})
+      this.setState({vals: json.values})
     })
   }
 
   componentDidUpdate(){
     console.log("featmap updated!")
     console.log(this.state)
-    console.log(this.state.features)
     console.log(this.state.vals)
   }
 
   render(){
-    if(this.state.features){
+    if(this.props.datapoints && this.state.vals){
       return(
         <div>
           <div className="mapContainer center" style={mapStyle} id="mapContainer">
@@ -45,7 +45,7 @@ export default class FeatureMap extends Component {
                 bootstrapURLKeys={{key: process.env.REACT_APP_API_KEY}}
                 center={mapCenter}
                 zoom={mapZoom}>
-                  {this.state.features.map(feature => {return(<Marker lat={feature.latitude} lng={feature.longitude} colour={feature.icon}/>)})}
+                  {this.props.datapoints.map(dp => {return(<Marker lat={dp.language.latitude} lng={dp.language.longitude} colour={this.state.vals[dp.value]}/>)})}
             </GoogleMapReact>
           </div>
           <Legend vals={this.state.vals} />
