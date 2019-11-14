@@ -36,7 +36,7 @@ export default class Signup extends Component {
       .then(res => res.json())
       .then(json => {
         if(!json.hasOwnProperty("error")){
-          window.location.assign("https://rocky-brushlands-87054.herokuapp.com/login")
+          window.location.assign("https://arcane-badlands-21974.herokuapp.com/login")
         }
         else {
           this.setState({error: json.error});

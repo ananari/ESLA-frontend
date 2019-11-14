@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Link } from "react-router-dom";
 
-const LanguagesURL = "http://localhost:3000/languages"
+const LanguagesURL = "https://stark-lake-66426.herokuapp.com/languages"
 
 export default class LanguagesList extends Component {
   constructor(){

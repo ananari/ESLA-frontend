@@ -34,7 +34,7 @@ export default class Login extends Component {
         window.localStorage.setItem("token", json.jwt)
         window.localStorage.setItem("username", json.user.username)
         window.localStorage.setItem("id", `${json.user.id}`)
-        window.location.assign("https://rocky-brushlands-87054.herokuapp.com/")
+        window.location.assign("https://arcane-badlands-21974.herokuapp.com/")
       }
       else {
         this.setState({error: json.error});

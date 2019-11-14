@@ -37,7 +37,7 @@ export default class UserPasswordForm extends Component {
           window.localStorage.removeItem("token")
           window.localStorage.removeItem("username")
           window.localStorage.removeItem("id")
-          window.location.assign("https://rocky-brushlands-87054.herokuapp.com/login")
+          window.location.assign("https://arcane-badlands-21974.herokuapp.com/login")
         }
         else {
           this.setState({error: json.error})
