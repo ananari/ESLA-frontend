@@ -7,7 +7,7 @@ export default class BarChart extends Component {
     const barWidth = 40;
     const canvasWidth = (barWidth + 5) * Object.values(data).length - 5
     const heightInterval = 20;
-    const canvasHeight = 400;
+    const canvasHeight = 500;
     d3.selectAll("div.canvas > *").remove();
     const svgCanvas = d3.select(this.refs.canvas).append('svg').attr('width', canvasWidth).attr('height', canvasHeight).style('border', '1px solid black')
     const datavals = Object.values(data)

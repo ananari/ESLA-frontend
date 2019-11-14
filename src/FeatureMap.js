@@ -5,7 +5,7 @@ import Marker from './Marker.js'
 
 const mapStyle = {
   width: '600px',
-  height: '400px',
+  height: '500px',
   margin: 'auto'
 };
 const mapCenter = [56.1371241, 17.8624636]
