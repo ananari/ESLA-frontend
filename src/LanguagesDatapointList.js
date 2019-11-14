@@ -8,7 +8,9 @@ export default class LanguagesDatapointList extends Component {
     super();
     this.state = {
       datapoints: [],
-      showForm: false
+      visibleDatapoints: [],
+      feature: "",
+      value: ""
     }
   }
 
@@ -16,9 +18,16 @@ export default class LanguagesDatapointList extends Component {
     fetch(getDataURL(this.props.language.id))
     .then(res => res.json())
     .then(json => {
-      this.setState({datapoints: json});
+      this.setState({datapoints: json, visibleDatapoints: json});
     })
     .catch(error => console.log(error))
+  }
+
+  handleChange = async event => {
+    event.preventDefault();
+    await this.setState({[event.target.name]: event.target.value})
+    let visibleDatapoints = this.state.datapoints.filter(dp => dp.feature.name.toLowerCase().includes(this.state.feature.toLowerCase()) && dp.value.toLowerCase().includes(this.state.value.toLowerCase()))
+    this.setState({visibleDatapoints})
   }
 
   render(){
@@ -31,9 +40,21 @@ export default class LanguagesDatapointList extends Component {
                 <th>Language</th>
                 <th>Value</th>
               </tr>
+              <tr>
+                <th>
+                  <form>
+                    <input type="text" onChange={event => this.handleChange(event)} name="feature" value={this.state.feature} />
+                  </form>
+                </th>
+                <th>
+                  <form>
+                    <input type="text" onChange={event => this.handleChange(event)} name="value" value={this.state.value} />
+                  </form>
+                </th>
+              </tr>
             </thead>
             <tbody>
-              {this.state.datapoints.map(dp => {return(
+              {this.state.visibleDatapoints.map(dp => {return(
                 <LanguageDatapoint datapoint={dp}/>
               )})}
             </tbody>
