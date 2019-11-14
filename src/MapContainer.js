@@ -23,7 +23,7 @@ export default class MapContainer extends Component {
             center={mapCenter}
             zoom={mapZoom}>
               <Marker
-              lat={this.props.language.latitude + 2}
+              lat={this.props.language.latitude}
               lng={this.props.language.longitude}
               text={this.props.language.name}
               />
