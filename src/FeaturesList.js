@@ -71,7 +71,7 @@ export default class FeaturesList extends Component {
       )
     }
     else {
-      return(<p>Oops! No features here.</p>)
+      return(<p>Oops! No features here. Maybe wait for a bit, to see if features are loading?</p>)
     }
   }
 }
