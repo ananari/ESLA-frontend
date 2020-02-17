@@ -45,7 +45,7 @@ export default class Signup extends Component {
       .catch(error => console.log(error))
     }
     else {
-      this.setState({error: "Password and password confirmation don't match."})
+      this.setState({error: "Password and password confirmation don't match. Please try again."})
     }
   }
   
