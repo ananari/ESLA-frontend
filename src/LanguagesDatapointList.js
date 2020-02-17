@@ -64,7 +64,7 @@ export default class LanguagesDatapointList extends Component {
     }
     else {
       return(
-        <p>Oops, no data yet.</p>
+        <p>Oops, no data yet. Try waiting a bit to see if data loads?</p>
       )
     }
   }
