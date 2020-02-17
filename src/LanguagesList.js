@@ -62,7 +62,7 @@ export default class LanguagesList extends Component {
       )
     }
     else {
-      return(<p>Oops! No languages here.</p>)
+      return(<p>Oops! No languages here. Perhaps try to wait a bit to see if languages load?</p>)
     }
   }
 }
